@@ -1,0 +1,296 @@
+/* Navbar */
+/* .navbar {
+    position: relative;
+    z-index: 1;
+} */
+.navbar-brand,
+.nav-item {
+    color: white !important;
+}
+
+.navbar-brand {
+    font-family: Viga;
+    font-size: 32px;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.bgcolor {
+    background-color: #333;
+}
+
+.nav-item,
+.dropdown-menu {
+    text-transform: uppercase;
+}
+
+/* Jumbotron */
+.jumbotron {
+    background-image: url(/public/assets/dimas/img/jumbotron-bg.jpg);
+    background-size: cover;
+    height: 540px;
+    text-align: center;
+    /* position: relative; */
+}
+
+/* .jumbotron .container {
+    z-index: 1;
+    position: relative;
+} */
+
+/* .jumbotron::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+    position: absolute;
+    bottom: 0;
+}  */
+
+.jumbotron .display-4 {
+    color: white;
+    padding-top: 200px;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    font-size: 40px;
+}
+
+.jumbotron1 {
+    background-image: url(/public/assets/dimas/img/kontak.jpg);
+    background-size: cover;
+    height: 540px;
+    text-align: center;
+}
+
+.jumbotron1 .display-4 {
+    color: white;
+    padding-top: 200px;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    font-size: 40px;
+}
+
+/* Info Panel */
+.info-panel {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    margin-top: -60px;
+    background-color: white;
+    z-index: 1;
+    padding: 30px;
+}
+
+.info-panel img {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.info-panel h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.info-panel p {
+    margin-top: -5px;
+    font-weight: 200;
+}
+
+/* working space */
+.workingspace {
+    margin-top: 120px;
+    /* text-align: center; */
+}
+
+.workingspace img {
+    border-radius: 10px;
+}
+
+.workingspace h3 {
+    font-size: 45px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.workingspace p {
+    font-size: 18px;
+    margin: 20px;
+}
+
+.workingspace .visi {
+    margin-left: 10px;
+}
+
+/* Pengurus */
+.pengurus {
+    margin-top: 70px;
+}
+
+.pengurus h3 {
+    text-align: center;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 30px;
+}
+
+.pengurus h5 {
+    text-align: center;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 24px;
+}
+
+.pengurus figure img {
+    width: 90px;
+    margin: 20px 15px 10px;
+}
+
+.pengurus figure h5 {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    color: #1c2c5d;
+}
+
+.pengurus figure p {
+    font-size: 12px;
+    color: #acacac;
+    margin-top: -5px;
+}
+
+.pengurus figcaption {
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    margin-top: 100px;
+}
+
+.footer p {
+    color: #acacac;
+    font-size: 18px;
+}
+
+/* Utility */
+.tombol {
+    border-radius: 40px;
+    /* background-color: #f12020; */
+}
+
+/* card */
+.card {
+    margin-top: 8%;
+}
+
+.inner {
+    overflow: hidden;
+}
+
+.inner img {
+    transition: all 1.5s ease;
+}
+
+.inner:hover img {
+    transform: scale(1.5);
+}
+
+/* Dekstop Version */
+@media (min-width: 992px) {
+    .navbar-brand,
+    .nav-item {
+        color: white !important;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    }
+
+    .nav-item {
+        text-transform: uppercase;
+        margin-right: 30px;
+    }
+
+    /* .nav-link:hover::after {
+        content: '';
+        display: block;
+        border-bottom: 3px solid #0B63DC;
+        width: 50%;
+        margin: auto;
+        padding-bottom: 5px;
+        margin-bottom: -8px;
+    } */
+
+    .nav-link:hover {
+        background: #f12020;
+    }
+
+    .dropdown-menu {
+        background-color: #f12020 !important;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .drop-profil {
+        margin-left: 700px;
+    }
+
+    .drop-berita {
+        margin-left: 800px;
+    }
+
+    .dropdown-item {
+        color: white;
+    }
+
+    .bgcolor {
+        background-color: transparent;
+    }
+
+    nav.sticky {
+        padding: 5px 100px;
+        background-color: #333;
+    }
+
+    .jumbotron {
+        margin-top: -75px;
+        height: 35em;
+    }
+
+    .jumbotron .display-4 {
+        font-size: 62px;
+    }
+
+    .workingspace {
+        text-align: left;
+    }
+
+    .workingspace p {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .workingspace .visi {
+        margin-left: 120px;
+    }
+
+    .pengurus {
+        margin-top: 100px;
+    }
+
+    .pengurus h3 {
+        font-size: 40px;
+    }
+
+    .pengurus h5 {
+        font-size: 32px;
+    }
+}

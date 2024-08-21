@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Event;
-use App\Http\Controllers\Controller;
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
-class EventController extends Controller
+
+class KegiatanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $events = Event::all();
-        return view('admin.event.index', [
-            'events' => $events
+        $kegiatans = Kegiatan::all();
+        return view('admin.kegiatan.index', [
+            'kegiatans' => $kegiatans
         ]);
     }
 
@@ -26,7 +27,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('admin.event.create');
+        return view('admin.kegiatan.create');
     }
 
     /**
@@ -36,31 +37,30 @@ class EventController extends Controller
     {
         $validatedData = $request->validate([
             'gambar' => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'judul' => 'required|min:5',
-            'deskripsi' => 'required|min:10'
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
         ]);
 
         DB::beginTransaction();
 
         try {
             $gambar = $request->file('gambar');
-            $gambar->storeAs('public/artikels', $gambar->hashName());
+            $gambar->storeAs('public/jenis', $gambar->hashName());
 
-            $deskripsi = strip_tags($request->input('deskripsi'), '<br>');
-
-            Event::create([
+            Kegiatan::create([
                 'gambar' => $gambar->hashName(),
                 'judul' => $request->judul,
-                'deskripsi' => $deskripsi
+                'perawatan' => $request->perawatan,
+                'deskripsi' => $request->deskripsi
             ]);
 
             DB::commit();
 
-            return redirect(route('daftar-event'))->with('success', 'Data Berhasil Disimpan');
+            return redirect(route('activitys.index'))->with('success', 'Data Berhasil Disimpan');
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return redirect(route('daftar-event'))->with('error', 'Data Gagal Disimpan');
+            return redirect(route('activitys.index'))->with('error', 'Data Gagal Disimpan');
         }
     }
 
@@ -69,19 +69,18 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-        $event = Event::findOrFail($id);
-        return view('admin.event.detail', compact("event"));
+        $kegiatan = Kegiatan::findOrFail($id);
+        return view('admin.kegiatan.detail', compact("kegiatan"));
     }
-
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        $event = Event::findOrFail($id);
-        return view('admin.event.edit', [
-            'event' => $event
+        $kegiatan = Kegiatan::findOrFail($id);
+        return view('admin.kegiatan.edit', [
+            'kegiatan' => $kegiatan
         ]);
     }
 
@@ -92,37 +91,37 @@ class EventController extends Controller
     {
         $validatedData = $request->validate([
             'gambar' => 'image|mimes:jpeg,jpg,png|max:2048',
-            'judul' => 'required|min:5',
-            'deskripsi' => 'required|min:10'
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+
         ]);
 
         DB::beginTransaction();
 
         try {
-            $event = Event::findOrFail($id);
+            $kegiatan = Kegiatan::findOrFail($id);
 
             if ($request->hasFile('gambar')) {
                 $gambar = $request->file('gambar');
-                $gambar->storeAs('public/artikels', $gambar->hashName());
-                Storage::delete('public/artikels/' . $event->gambar);
-                $deskripsi = strip_tags($request->input('deskripsi'), '<br>');
+                $gambar->storeAs('public/jenis', $gambar->hashName());
+                Storage::delete('public/jenis/' . $kegiatan->gambar);
 
-                $event->update([
+                $kegiatan->update([
                     'gambar' => $gambar->hashName(),
                     'judul' => $request->judul,
-                    'deskripsi' => $deskripsi
+                    'deskripsi' => $request->deskripsi
                 ]);
             } else {
-                $event->update($validatedData);
+                $kegiatan->update($validatedData);
             }
 
             DB::commit();
 
-            return redirect(route('daftar-event'))->with('success', 'Data Berhasil Diupdate');
+            return redirect(route('activitys.index'))->with('success', 'Data Berhasil Diupdate');
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return redirect(route('daftar-event'))->with('error', 'Data Gagal Diupdate');
+            return redirect(route('activitys.index'))->with('error', 'Data Gagal Diupdate');
         }
     }
 
@@ -131,11 +130,10 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        $event = Event::findOrFail($id);
+        $kegiatan = Kegiatan::findOrFail($id);
+        Storage::delete('public/artikels/' . $kegiatan->gambar);
 
-        Storage::delete('public/artikels/' . $event->gambar);
-
-        $event->delete();
-        return redirect(route('daftar-event'))->with('success', 'Data Berhasil Dihapus');
+        $kegiatan->delete();
+        return redirect(route('activitys.index'))->with('success', 'Data Berhasil Dihapus');
     }
 }

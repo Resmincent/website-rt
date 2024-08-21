@@ -2,11 +2,10 @@
 @section('addCss')
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
 @endsection
-
 @section('addJavascript')
+<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
-<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 <script>
     $(function() {
         $("#data-table").DataTable();
@@ -39,12 +38,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Daftar Jenis</h1>
+                    <h1 class="m-0">Daftar Kegiatan</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Daftar Jenis</li>
+                        <li class="breadcrumb-item active">Daftar Kegiatan</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -57,29 +56,35 @@
         <div class="container mt-5">
             <div class="card">
                 <div class="card-header text-right">
-                    <a href="{{ route('create-jenis') }}" class="btn btn-primary" role="button">Tambah Jenis</a>
+                    <a href="{{ route('activitys.create') }}" class="btn btn-primary" role="button">Tambah Kegiatan</a>
                 </div>
                 <div class="card-body p-1 table-responsive">
                     <table class="table table-hover mb-0" id="data-table">
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama Jenis</th>
+                                <th>Gambar</th>
+                                <th>Judul</th>
+                                <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($jeniss as $jenis)
+                            @forelse ($kegiatans as $kegiatan)
                             <tr>
                                 <td> {{ $loop->index + 1 }}</td>
-                                <td> {{ $jenis->nama_jenis }}</td>
-                                <td>
-                                    <a href="{{route('edit-jenis', ['id' => $jenis->id])}}" class="btn btn-warning btn-sm" role="button">Edit</a>
-                                    <a href="{{route('detail-jenis', ['id' => $jenis->id])}}" class="btn btn-primary btn-sm" role="button">Lihat</a>
-                                    <a onclick="confirmDelete(this)" data-url="{{ route('delete-jenis', ['id' => $jenis->id]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
+                                <td class="text-center"><img src="{{ asset("/storage/artikels/" . $kegiatan->gambar) }}" class="rounded" style="width: 50px"></td>
+                                <td> {{ $kegiatan->judul }} </td>
+                                <td> {{ $kegiatan->deskripsi }} </td>
+                                <td class="text-center">
+                                    <a href="{{route('activitys.edit', ['id' => $kegiatan->id])}}" class="btn btn-warning btn-sm" role="button">Edit</a>
+                                    <a href="{{route('activitys.show', ['id' => $kegiatan->id])}}" class="btn btn-primary btn-sm" role="button">Lihat</a>
+                                    <a onclick="confirmDelete(this)" data-url="{{ route('activitys.destroy', ['id' => $kegiatan->id]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
+
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -89,4 +94,5 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
 @endsection

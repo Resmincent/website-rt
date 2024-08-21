@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jenis;
-use App\Models\Event;
+use App\Models\Berita;
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -13,9 +13,9 @@ class LandingPageController extends Controller
      */
     public function index()
     {
-        $jenis = Jenis::latest()->take(5)->get();
-        $events = Event::latest()->take(5)->get();
+        $beritas = Berita::latest()->take(5)->get();
+        $kegiatans = Kegiatan::latest()->take(5)->get();
 
-        return view('landing_page', compact('jenis', 'events'));
+        return view('landing_page', compact('beritas', 'kegiatans'));
     }
 }

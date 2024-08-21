@@ -11,6 +11,7 @@
         "laravel/framework": "^10.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^4.5",
+        "phpmailer/phpmailer": "^6.9",
         "realrashid/sweet-alert": "^7.1"
     },
     "require-dev": {

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Providers\RouteServiceProvider;
+
 
 class LoginController extends Controller
 {
@@ -25,8 +27,11 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
+    protected function redirectTo()
+    {
+        // Redirect non-admin users to the landing page
+        return auth()->user()->isAdmin ? RouteServiceProvider::HOME : route('landing');
+    }
     /**
      * Create a new controller instance.
      *

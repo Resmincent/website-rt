@@ -5,14 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Kontak extends Model
 {
     use HasFactory;
-    protected $table = 'events';
-
-    protected $fillable = [
-        'gambar',
-        'judul',
-        'deskripsi'
-    ];
+    protected $fillable = ['name', 'email', 'message'];
 }
