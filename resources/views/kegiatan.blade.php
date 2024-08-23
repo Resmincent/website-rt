@@ -21,38 +21,15 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="card" style="width: 20rem;">
+                @foreach ($kegiatans as $kegiatan )
                 <div class="inner">
-                    <img src="assets/img/kegiatan1.jpg" class="card-img-top" alt="kegiatan1">
+                    <img src="{{ asset("/storage/jenis/" . $kegiatan->gambar) }}" class="card-img-top border border-2" alt="kegiatan">
                 </div>
                 <div class="card-body text-center">
-                    <h5 class="card-title">Penanaman bibit Jahe</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Info Lengkap</a>
+                    <h5 class="card-title">{{ $kegiatan->judul }}</h5>
+                    <p class="card-text">{{ $kegiatan->deskripsi }}</p>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card" style="width: 20rem;">
-                <div class="inner">
-                    <img src="assets/img/kegiatan1.jpg" class="card-img-top" alt="kegiatan1">
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Penanaman bibit Jahe</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Info Lengkap</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card" style="width: 20rem;">
-                <div class="inner">
-                    <img src="assets/img/kegiatan1.jpg" class="card-img-top" alt="kegiatan1">
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Penanaman bibit Jahe</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Info Lengkap</a>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

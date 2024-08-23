@@ -3,8 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\KegiatanController;
 use App\Http\Controllers\Admin\BeritaController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\BeritaFeController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\LandingPageController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\KegiatanFeController;
+use App\Http\Controllers\Admin\KeluargaController;
+use App\Http\Controllers\Admin\UsahaWargaController;
+use App\Http\Controllers\UsahaFeController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -19,53 +25,35 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [LandingPageController::class, 'index'])->name('landing');
-
 Auth::routes();
-
-Route::resource('beritas', BeritaController::class);
-Route::resource('activitys', KegiatanController::class);
-Route::resource('users', UserController::class);
-
-use App\Http\Controllers\ContactController;
 
 Route::get('/contact', function () {
     return view('kontak');
 })->name('contact.form');
 
+Route::get('/tentang-kami', function () {
+    return view('testang_kami');
+})->name('tentang-kami');
+
+Route::get('/', [LandingPageController::class, 'index'])->name('landing');
+Route::get('/kegiatan', [KegiatanFeController::class, 'index'])->name('kegiatan');
+Route::get('/berita', [BeritaFeController::class, 'index'])->name('berita');
+Route::get('/usaha-warga', [UsahaFeController::class, 'index'])->name('usaha-warga');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
+Route::middleware('auth')->group(function () {
 
+    Route::resource('beritas', BeritaController::class);
+    Route::resource('activitys', KegiatanController::class);
+    Route::resource('keluargas', KeluargaController::class);
+    Route::resource('usahawarga', UsahaWargaController::class);
 
-// Route::middleware('auth')->group(function () {
-
-//     Route::middleware('role:admin')->group(function () {
-//         Route::get('/jenis', [KegiatanController::class, 'index'])->name('daftar-jenis');
-//         Route::get('/jenis/create', [KegiatanController::class, 'create'])->name('create-jenis');
-//         Route::post('/jenis/create', [KegiatanController::class, 'store'])->name('store-jenis');
-//         Route::get('/jenis/{id}/edit', [KegiatanController::class, 'edit'])->name('edit-jenis');
-//         Route::post('/jenis/{id}/edit', [KegiatanController::class, 'update'])->name('update-jenis');
-//         Route::get('/jenis/{id}/delete', [KegiatanController::class, 'destroy'])->name('delete-jenis');
-//         Route::get('/jenis/{id}', [KegiatanController::class, 'show'])->name('detail-jenis');
-
-//         Route::get('/event', [BeritaController::class, 'index'])->name('daftar-event');
-//         Route::get('/event/create', [BeritaController::class, 'create'])->name('create-event');
-//         Route::post('/event/create', [BeritaController::class, 'store'])->name('store-event');
-//         Route::get('/event/{id}/edit', [BeritaController::class, 'edit'])->name('edit-event');
-//         Route::post('/event/{id}/edit', [BeritaController::class, 'update'])->name('update-event');
-//         Route::get('/event/{id}/delete', [BeritaController::class, 'destroy'])->name('delete-event');
-//         Route::get('/event/{id}', [BeritaController::class, 'show'])->name('detail-event');
-//     });
-
-
-//     Route::middleware('role:user')->group(function () {
-//         Route::get('/event/create', [BeritaController::class, 'create'])->name('create-event');
-//         Route::post('/event/create', [BeritaController::class, 'store'])->name('store-event');
-//     });
-// });
+    Route::middleware('role:admin')->group(function () {
+        Route::resource('users', UserController::class);
+    });
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 Route::get('/redirect-user', function () {
     if (Auth::check() && !Auth::user()->isAdmin) {

@@ -27,11 +27,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function redirectTo()
-    {
-        // Redirect non-admin users to the landing page
-        return auth()->user()->isAdmin ? RouteServiceProvider::HOME : route('landing');
-    }
+    protected $redirectTo = '/home';
+
     /**
      * Create a new controller instance.
      *

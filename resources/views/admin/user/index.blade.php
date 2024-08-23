@@ -39,12 +39,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Daftar Berita</h1>
+                    <h1 class="m-0">Daftar User</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Daftar Berita</li>
+                        <li class="breadcrumb-item active">Daftar User</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -57,28 +57,30 @@
         <div class="container mt-5">
             <div class="card">
                 <div class="card-header text-right">
-                    <a href="{{ route('beritas.create') }}" class="btn btn-primary" role="button">Tambah Berita</a>
+                    <a href="{{ route('users.create') }}" class="btn btn-primary" role="button">Tambah User</a>
                 </div>
                 <div class="card-body p-1 table-responsive">
                     <table class="table table-hover mb-0" id="data-table">
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Judul</th>
-                                <th>Deskripsi</th>
+                                <th>Nama</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Keluarga</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($beritas as $berita)
+                            @foreach ($users as $user)
                             <tr>
                                 <td> {{ $loop->index + 1 }}</td>
-                                <td> {{ $berita->judul }}</td>
-                                <td> {{ $berita->deskripsi }}</td>
+                                <td> {{ $user->name }}</td>
+                                <td> {{ $user->jenis_kelamin }}</td>
+                                <td> {{ $user->keluarga }}</td>
                                 <td>
-                                    <a href="{{route('beritas.edit', ['id' => $berita->id])}}" class="btn btn-warning btn-sm" role="button">Edit</a>
-                                    <a href="{{route('beritas.show', ['id' => $berita->id])}}" class="btn btn-primary btn-sm" role="button">Lihat</a>
-                                    <a onclick="confirmDelete(this)" data-url="{{ route('beritas.destroy', ['id' => $berita->id]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
+                                    <a href="{{route('users.edit', ['user' => $user->id])}}" class="btn btn-warning btn-sm" role="button">Edit</a>
+                                    <a href="{{route('users.show', ['user' => $user->id])}}" class="btn btn-primary btn-sm" role="button">Lihat</a>
+                                    <a onclick="confirmDelete(this)" data-url="{{ route('users.destroy', ['user' => $user->id]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -7,7 +7,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!-- My CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href={{ asset('assets/dimas/style.css') }}>
     <!-- Animation css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- import fontawesome -->
@@ -29,12 +29,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" aria-current="page" href="index.html">Beranda</a>
+                    <a class="nav-item nav-link" aria-current="page" href="{{ route('landing') }}">Beranda</a>
                     <a class="nav-item dropdown nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
                     <ul class="dropdown-menu drop-profil" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="#visi&misi">Visi Misi</a></li>
                         <li><a class="dropdown-item" href="#">Laporan</a></li>
-                        <li><a class="dropdown-item" href="tentang_kami.html">Tentang Kami</a></li>
+                        <li><a class="dropdown-item" href="{{ route('tentang-kami') }}">Tentang Kami</a></li>
                     </ul>
                     <a class="nav-item dropdown nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Berita</a>
                     <ul class="dropdown-menu drop-berita" aria-labelledby="navbarDropdownMenuLink">
@@ -43,6 +43,7 @@
                     </ul>
                     <a class="nav-item nav-link" href="galeri_kegiatan.html">Galeri Kegiatan</a>
                     <a class="nav-item nav-link" href="kontak.html">Kontak</a>
+                    <a class="nav-link btn-primary text-white" href="{{ route('login') }}" style="border-radius: 12px; width: 60px">Login</a>
                 </div>
             </div>
         </div>

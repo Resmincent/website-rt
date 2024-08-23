@@ -21,7 +21,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'jenis_kelamin'
+        'jenis_kelamin',
+        'keluarga_id'
     ];
 
     /**
@@ -51,5 +52,10 @@ class User extends Authenticatable
     public function isUser()
     {
         return $this->role === 'user';
+    }
+
+    public function keluarga()
+    {
+        return $this->belongsTo(Keluarga::class);
     }
 }

@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard Cupang Bluerim</h1>
+                    <h1 class="m-0">Dashboard RT</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Cupang Bluerim</li>
+                        <li class="breadcrumb-item active">Dashboard RT</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -24,62 +24,77 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Karakteristik Cupang Bluerim</h5>
-                        </div>
-                        <div class="card-body">
-
-                            <p class="card-text">
-                                Cupang Bluerim dikenal dengan warna biru cerah pada pinggiran siripnya. Ikan ini memiliki tubuh yang ramping dan sirip yang panjang, memberikan tampilan yang elegan saat berenang.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="card card-primary card-outline">
-                        <div class="card-header">
-                            <h5 class="card-title">Perawatan Cupang Bluerim</h5>
-                        </div>
-                        <div class="card-body">
-
-                            <p class="card-text">
-                                Cupang Bluerim membutuhkan perawatan khusus untuk menjaga warna dan kesehatannya. Pastikan untuk menjaga suhu air antara 24-28°C dan melakukan penggantian air secara teratur.
-                            </p>
-                        </div>
-                    </div><!-- /.card -->
-                </div>
-                <!-- /.col-md-6 -->
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Awal Mula Cupang Bluerim</h5>
-                        </div>
-                        <div class="card-body">
-
-                            <p class="card-text">
-                                Ikan cupang blue rim awalnya dikembangbiakkan oleh pembudidaya ikan cupang asal Thailand. Karena warnanya yang cantik, ikan ini menarik perhatian banyak orang hingga menyebar ke Asia Tenggara termasuk ke Indonesia.
-                                Akhirnya, budidaya ikan cupang blue rim pun dilakukan di Indonesia. Namun, jika dibandingkan ikan cupang blue rim dari Thailand, warna ikan cupang blue rim hasil budidaya di Indonesia tidak terlalu terlihat.
-                            </p>
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm rounded-lg">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-dark mb-1">Users</h6>
+                                    <h3 class="font-weight-bolder mb-0">{{ $user }}</h3>
+                                </div>
+                                <div class="icon-circle bg-success text-white">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="card card-primary card-outline">
-                        <div class="card-header">
-                            <h5 class="card-title">Ciri Cupang Bluerim</h5>
-                        </div>
-                        <div class="card-body">
-
-                            <p class="card-text">
-                                Umumnya, ikan cupang blue rim dikenal dengan warna putih bersih sebagai warna dasarnya. Ikan ini terlihat indah dan cantik karena semburat warna biru tua pada bagian ujung ekor dan sirip. Apalagi, ekornya pun yang mengembang sehingga membuat ikan terlihat seperti penari balet ketika bergerak. </p>
-                        </div>
-                    </div><!-- /.card -->
                 </div>
-            </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+
+                <!-- Card for Usaha Warga -->
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm rounded-lg">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-dark mb-1">Usaha Warga</h6>
+                                    <h3 class="font-weight-bolder mb-0">{{ $usaha }}</h3>
+                                </div>
+                                <div class="icon-circle bg-success text-white">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card for Kegiatan -->
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm rounded-lg">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-dark mb-1">Kegiatan</h6>
+                                    <h3 class="font-weight-bolder mb-0">{{ $kegiatan }}</h3>
+                                </div>
+                                <div class="icon-circle bg-success text-white">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card for Keluarga -->
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm rounded-lg">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="text-dark mb-1">Keluarga</h6>
+                                    <h3 class="font-weight-bolder mb-0">{{ $keluarga }}</h3>
+                                </div>
+                                <div class="icon-circle bg-success text-white">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
     </div>
-    <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 @endsection

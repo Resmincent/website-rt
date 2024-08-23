@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? "Info Cupang Gan" }} | Dashboard</title>
+    <title>{{ $title ?? "Website RT" }} | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -44,8 +44,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="brand-link">
-                <img src="{{ asset('assets/dist/img/cupang.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">{{ $title ?? "CupangBoo" }}</span>
+                <img src="{{ asset('assets/dimas/img/kontak.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">{{ $title ?? "Website RT" }}</span>
             </a>
 
             <!-- Sidebar -->
@@ -53,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('assets/dimas/img/pria.png') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">{{ auth()->user()->name }}</a>
@@ -78,8 +78,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
-                        @if(auth()->user()->isAdmin())
-                        <!-- Admin specific content -->
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -89,42 +87,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                @if(auth()->user()->isAdmin())
                                 <li class="nav-item">
-                                    <a href="{{route('daftar-jenis')}}" class="nav-link active">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>Jenis</p>
+                                    <a href="{{route('users.index')}}" class="nav-link">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>User</p>
+                                    </a>
+                                </li>
+                                @endif
+                                <li class="nav-item">
+                                    <a href="{{route('beritas.index')}}" class="nav-link">
+                                        <i class="nav-icon fas fa-book-reader"></i>
+                                        <p>Berita</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('daftar-event')}}" class="nav-link">
+                                    <a href="{{route('keluargas.index')}}" class="nav-link">
+                                        <i class="nav-icon fas fa-user-friends"></i>
+                                        <p>Keluarga</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('activitys.index')}}" class="nav-link">
+                                        <i class="nav-icon fas fa-poll-h"></i>
+                                        <p>Kegiatan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('usahawarga.index')}}" class="nav-link">
                                         <i class="nav-icon fas fa-store"></i>
-                                        <p>Event</p>
+                                        <p>Usaha Warga</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        @elseif(auth()->user()->isUser())
-                        <!-- Regular user content -->
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Menu
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('create-event')}}" class="nav-link active">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>Tambah Event</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @else
-                        <h1>Welcome</h1>
-                        @endif
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

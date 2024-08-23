@@ -18,18 +18,18 @@
         <div class="col-10 info-panel">
             <div class="row">
                 <div class="col-lg">
-                    <img src="assets/img/penduduk.png" alt="employee">
-                    <h4>35</h4>
+                    <img src="{{ asset('assets/dimas/img/penduduk.png') }}" alt="employee">
+                    <h4>{{ $keluarga_count }}</h4>
                     <p>Keluarga</p>
                 </div>
                 <div class="col-lg">
-                    <img src="assets/img/pria.png" alt="hires">
-                    <h4>50</h4>
+                    <img src="{{ asset('assets/dimas/img/pria.png') }}" alt="hires">
+                    <h4>{{ $pria_count }}</h4>
                     <p>LAKI-LAKI</p>
                 </div>
                 <div class="col-lg">
-                    <img src="assets/img/wanita.png" alt="security">
-                    <h4>50</h4>
+                    <img src="{{ asset('assets/dimas/img/wanita.png') }}" alt="security">
+                    <h4>{{ $wanita_count }}</h4>
                     <p>PEREMPUAN</p>
                 </div>
             </div>
@@ -40,7 +40,7 @@
     <!-- Workingspace -->
     <div class="row workingspace">
         <div class="col-lg-6 animate__animated animate__fadeInLeft animate__delay-1s">
-            <img src="assets/img/workingspace.png" alt="workingspace" class="img-fluid">
+            <img src="{{ asset('assets/dimas/img/workingspace.png') }}" alt="workingspace" class="img-fluid">
         </div>
         <div class="col-lg-5 animate__animated animate__fadeInRight animate__delay-2s">
             <h3><span id="1">Lingkungan</span></h3>
@@ -48,7 +48,7 @@
                     <a href="" class="btn btn-primary tombol">Galeri</a>
         </div>
         <div class="col-lg-6 mt-5 animate__animated animate__fadeInLeft animate__delay-4s">
-            <img src="assets/img/sawah.jpeg" alt="workingspace" class="img-fluid">
+            <img src="{{ asset('assets/dimas/img/sawah.jpeg') }}" alt="workingspace" class="img-fluid">
         </div>
         <div class="col-lg-5 mt-3 animate__animated animate__fadeInRight animate__delay-5s">
             <h3><span>Fungsi Pengurus RT</span></h3>
@@ -62,7 +62,7 @@
         </div>
         <h3 id="visi&misi" class="mt-5">Visi & Misi</h3>
         <div class="col-lg-6 mt-5">
-            <img src="assets/img/visi&misi.svg" alt="workingspace" class="img-fluid">
+            <img src="{{ asset('assets/dimas/img/visi&misi.svg') }}" alt="workingspace" class="img-fluid">
         </div>
         <div class="col-lg-6 mt-3">
             <p>

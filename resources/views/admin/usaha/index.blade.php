@@ -1,12 +1,13 @@
 @extends('adminlte.layouts.app')
+
 @section('addCss')
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
 @endsection
 
 @section('addJavascript')
+<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
-<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 <script>
     $(function() {
         $("#data-table").DataTable();
@@ -31,6 +32,7 @@
 
 </script>
 @endsection
+
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -39,12 +41,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Daftar Berita</h1>
+                    <h1 class="m-0">Daftar Usaha Warga</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Daftar Berita</li>
+                        <li class="breadcrumb-item active">Daftar Usaha Warga</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -57,28 +59,36 @@
         <div class="container mt-5">
             <div class="card">
                 <div class="card-header text-right">
-                    <a href="{{ route('beritas.create') }}" class="btn btn-primary" role="button">Tambah Berita</a>
+                    <a href="{{ route('usahawarga.create') }}" class="btn btn-primary" role="button">Tambah Usaha Warga</a>
                 </div>
                 <div class="card-body p-1 table-responsive">
                     <table class="table table-hover mb-0" id="data-table">
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Judul</th>
+                                <th>Gambar</th>
+                                <th>Nama Usaha</th>
                                 <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($beritas as $berita)
+                            @foreach ($usahaWargas as $usahaWarga)
                             <tr>
-                                <td> {{ $loop->index + 1 }}</td>
-                                <td> {{ $berita->judul }}</td>
-                                <td> {{ $berita->deskripsi }}</td>
-                                <td>
-                                    <a href="{{route('beritas.edit', ['id' => $berita->id])}}" class="btn btn-warning btn-sm" role="button">Edit</a>
-                                    <a href="{{route('beritas.show', ['id' => $berita->id])}}" class="btn btn-primary btn-sm" role="button">Lihat</a>
-                                    <a onclick="confirmDelete(this)" data-url="{{ route('beritas.destroy', ['id' => $berita->id]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
+                                <td>{{ $loop->index + 1 }}</td>
+                                <td class="text-center">
+                                    @if ($usahaWarga->gambar)
+                                    <img src="{{ asset('storage/' . $usahaWarga->gambar) }}" class="rounded" style="width: 50px">
+                                    @else
+                                    <span>Tidak ada gambar</span>
+                                    @endif
+                                </td>
+                                <td>{{ $usahaWarga->nama_usaha }}</td>
+                                <td>{{ $usahaWarga->deskripsi }}</td>
+                                <td class="text-center">
+                                    <a href="{{ route('usahawarga.edit', $usahaWarga->id) }}" class="btn btn-warning btn-sm" role="button">Edit</a>
+                                    <a href="{{ route('usahawarga.show', $usahaWarga->id) }}" class="btn btn-primary btn-sm" role="button">Lihat</a>
+                                    <a onclick="confirmDelete(this)" data-url="{{ route('usahawarga.destroy', $usahaWarga->id) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

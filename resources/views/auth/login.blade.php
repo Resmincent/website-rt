@@ -1,7 +1,7 @@
 @extends('adminlte.layouts.auth')
 
 @section('content')
-<body class="hold-transition login-page" style="background-image: url('{{ asset('assets/dist/img/bg1.png') }}')">
+<body class="hold-transition login-page" style="background-image: url('{{ asset('assets/dimas/img/jumbotron-bg.jpg') }}')">
     <div class="login-box">
         <div class="login-logo">
             <a href="{{ route('home') }}"><b class="text-white">{{ config('app.name', 'Info Cupang Gan') }}</b></a>

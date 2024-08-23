@@ -28,7 +28,7 @@
 
 /* Jumbotron */
 .jumbotron {
-    background-image: url(/public/assets/dimas/img/jumbotron-bg.jpg);
+    background-image: url(/assets/dimas/img/jumbotron-bg.jpg);
     background-size: cover;
     height: 540px;
     text-align: center;
@@ -59,7 +59,7 @@
 }
 
 .jumbotron1 {
-    background-image: url(/public/assets/dimas/img/kontak.jpg);
+    background-image: url(/assets/dimas/img/kontak.jpg);
     background-size: cover;
     height: 540px;
     text-align: center;
