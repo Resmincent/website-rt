@@ -32,17 +32,16 @@
                     <a class="nav-item nav-link" aria-current="page" href="{{ route('landing') }}">Beranda</a>
                     <a class="nav-item dropdown nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
                     <ul class="dropdown-menu drop-profil" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#visi&misi">Visi Misi</a></li>
-                        <li><a class="dropdown-item" href="#">Laporan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('landing') }}#visi&misi">Visi Misi</a></li>
                         <li><a class="dropdown-item" href="{{ route('tentang-kami') }}">Tentang Kami</a></li>
                     </ul>
                     <a class="nav-item dropdown nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Berita</a>
                     <ul class="dropdown-menu drop-berita" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="kegiatan.html">Kegiatan RT</a></li>
-                        <li><a class="dropdown-item" href="usaha_warga.html">Usaha Warga</a></li>
+                        <li><a class="dropdown-item" href="{{ route('berita') }}">Berita RT</a></li>
+                        <li><a class="dropdown-item" href="{{ route('usaha-warga') }}">Usaha Warga</a></li>
                     </ul>
-                    <a class="nav-item nav-link" href="galeri_kegiatan.html">Galeri Kegiatan</a>
-                    <a class="nav-item nav-link" href="kontak.html">Kontak</a>
+                    <a class="nav-item nav-link" href="{{ route('contact.submit') }}">Galery Kegiatan</a>
+                    <a class="nav-item nav-link" href="{{ route('contact.submit') }}">Kontak</a>
                     <a class="nav-link btn-primary text-white" href="{{ route('login') }}" style="border-radius: 12px; width: 60px">Login</a>
                 </div>
             </div>

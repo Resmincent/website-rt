@@ -22,8 +22,6 @@
 <div class="container">
     <div class="row">
         @foreach ($beritas as $berita )
-
-        @endforeach
         <div id="carouselExampleControls" class="col-lg-6 col-sm-12 carousel slide mt-5" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -35,6 +33,7 @@
             <h2>{{ $berita->judul }}</h2>
             <p style="font-size: 18px;">{{ $berita->deskripsi }}</p>
         </div>
+        @endforeach
     </div>
 </div>
 <!-- akhir artikel -->

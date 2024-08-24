@@ -77,9 +77,9 @@
                                 <td> {{ $kegiatan->judul }} </td>
                                 <td> {{ $kegiatan->deskripsi }} </td>
                                 <td class="text-center">
-                                    <a href="{{route('activitys.edit', ['id' => $kegiatan->id])}}" class="btn btn-warning btn-sm" role="button">Edit</a>
-                                    <a href="{{route('activitys.show', ['id' => $kegiatan->id])}}" class="btn btn-primary btn-sm" role="button">Lihat</a>
-                                    <a onclick="confirmDelete(this)" data-url="{{ route('activitys.destroy', ['id' => $kegiatan->id]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
+                                    <a href="{{route('activitys.edit', ['activity' => $kegiatan->id])}}" class="btn btn-warning btn-sm" role="button">Edit</a>
+                                    <a href="{{route('activitys.show', ['activity' => $kegiatan->id])}}" class="btn btn-primary btn-sm" role="button">Lihat</a>
+                                    <a onclick="confirmDelete(this)" data-url="{{ route('activitys.destroy', ['activity' => $kegiatan->id]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
 
                                 </td>
                             </tr>

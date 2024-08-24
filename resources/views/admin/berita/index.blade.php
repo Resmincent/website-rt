@@ -76,9 +76,9 @@
                                 <td> {{ $berita->judul }}</td>
                                 <td> {{ $berita->deskripsi }}</td>
                                 <td>
-                                    <a href="{{route('beritas.edit', ['id' => $berita->id])}}" class="btn btn-warning btn-sm" role="button">Edit</a>
-                                    <a href="{{route('beritas.show', ['id' => $berita->id])}}" class="btn btn-primary btn-sm" role="button">Lihat</a>
-                                    <a onclick="confirmDelete(this)" data-url="{{ route('beritas.destroy', ['id' => $berita->id]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
+                                    <a href="{{route('beritas.edit', ['berita' => $berita->id])}}" class="btn btn-warning btn-sm" role="button">Edit</a>
+                                    <a href="{{route('beritas.show', ['berita' => $berita->id])}}" class="btn btn-primary btn-sm" role="button">Lihat</a>
+                                    <a onclick="confirmDelete(this)" data-url="{{ route('beritas.destroy', ['berita' => $berita->id]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
